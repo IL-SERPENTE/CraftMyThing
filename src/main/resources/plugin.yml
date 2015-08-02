@@ -1,0 +1,8 @@
+name: CraftMyThing
+main: fr.blueslime.craftmything.CraftMyThing
+version: 1.0
+
+depend: [SamaGamesAPI, EffectLib]
+
+author: BlueSlime
+website: http://blueslime.fr

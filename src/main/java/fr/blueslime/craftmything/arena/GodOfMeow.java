@@ -1,0 +1,98 @@
+package fr.blueslime.craftmything.arena;
+
+import de.slikey.effectlib.effect.CubeEffect;
+import de.slikey.effectlib.util.ParticleEffect;
+import fr.blueslime.craftmything.CraftMyThing;
+import net.minecraft.server.v1_8_R3.EntityOcelot;
+import net.minecraft.server.v1_8_R3.NBTTagCompound;
+import net.minecraft.server.v1_8_R3.World;
+import org.bukkit.Location;
+import org.bukkit.util.Vector;
+
+public class GodOfMeow extends EntityOcelot
+{
+    private final Location location;
+    private final CubeEffect cubeEffect;
+
+    public GodOfMeow(World world, Location location)
+    {
+        super(world);
+
+        this.location = location;
+
+        this.cubeEffect = new CubeEffect(CraftMyThing.getInstance().getEffectManager());
+        this.cubeEffect.setLocation(this.location.clone().subtract(0.0D, 5.0D, 0.0D));
+        this.cubeEffect.particle = ParticleEffect.FIREWORKS_SPARK;
+        this.cubeEffect.infinite();
+        this.cubeEffect.start();
+    }
+
+    @Override
+    public void g(float sideMot, float forMot)
+    {
+        this.k(0.0F);
+        this.motY = 0.0D;
+        this.motX = 0.0D;
+        this.motZ = 0.0D;
+        this.yaw = this.location.getYaw();
+        this.pitch = this.location.getPitch();
+        this.aI = this.location.getYaw();
+        this.aJ = this.location.getYaw();
+
+        super.g(sideMot, forMot);
+    }
+
+    @Override
+    public void move(double d0, double d1, double d2) {}
+
+    @Override
+    public void g(double x, double y, double z)
+    {
+        Vector vector = this.getBukkitEntity().getVelocity();
+        super.g(vector.getX(), vector.getY(), vector.getZ());
+    }
+
+    @Override
+    protected String z()
+    {
+        return "";
+    }
+
+    @Override
+    protected String bp()
+    {
+        return "";
+    }
+
+    @Override
+    protected String bo()
+    {
+        return "";
+    }
+
+    @Override
+    public void b(NBTTagCompound nbttagcompound) {}
+
+    @Override
+    public boolean c(NBTTagCompound nbttagcompound)
+    {
+        return false;
+    }
+
+    @Override
+    public void a(NBTTagCompound nbttagcompound) {}
+
+    @Override
+    public boolean d(NBTTagCompound nbttagcompound)
+    {
+        return false;
+    }
+
+    @Override
+    public void e(NBTTagCompound nbttagcompound) {}
+
+    public CubeEffect getCubeEffect()
+    {
+        return this.cubeEffect;
+    }
+}
