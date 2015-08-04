@@ -4,8 +4,9 @@ import fr.blueslime.craftmything.CraftMyThing;
 import fr.blueslime.craftmything.arena.Arena;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 
-public abstract class AbstractEvent<EVENT extends Event>
+public abstract class AbstractEvent<EVENT extends Event> implements Listener
 {
     protected CraftMyThing plugin;
     protected Arena arena;

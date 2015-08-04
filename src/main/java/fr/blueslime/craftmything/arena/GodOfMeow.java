@@ -34,22 +34,8 @@ public class GodOfMeow extends EntityOcelot
         this.motY = 0.0D;
         this.motX = 0.0D;
         this.motZ = 0.0D;
-        this.yaw = this.location.getYaw();
-        this.pitch = this.location.getPitch();
-        this.aI = this.location.getYaw();
-        this.aJ = this.location.getYaw();
 
         super.g(sideMot, forMot);
-    }
-
-    @Override
-    public void move(double d0, double d1, double d2) {}
-
-    @Override
-    public void g(double x, double y, double z)
-    {
-        Vector vector = this.getBukkitEntity().getVelocity();
-        super.g(vector.getX(), vector.getY(), vector.getZ());
     }
 
     @Override

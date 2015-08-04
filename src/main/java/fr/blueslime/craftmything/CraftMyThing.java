@@ -5,6 +5,7 @@ import de.slikey.effectlib.EffectManager;
 import fr.blueslime.craftmything.arena.Arena;
 import fr.blueslime.craftmything.arena.ArenaManager;
 import fr.blueslime.craftmything.arena.GodOfMeow;
+import fr.blueslime.craftmything.events.*;
 import net.minecraft.server.v1_8_R3.BiomeBase;
 import net.minecraft.server.v1_8_R3.EntityEnderDragon;
 import net.minecraft.server.v1_8_R3.EntityInsentient;
@@ -40,7 +41,13 @@ public class CraftMyThing extends JavaPlugin
 
     public void registerEvents()
     {
-
+        Bukkit.getPluginManager().registerEvents(new CMTBlockDamageEvent(this, this.arena), this);
+        Bukkit.getPluginManager().registerEvents(new CMTEntityDamageByEntityEvent(this, this.arena), this);
+        Bukkit.getPluginManager().registerEvents(new CMTEntityDamageEvent(this, this.arena), this);
+        Bukkit.getPluginManager().registerEvents(new CMTEntityDeathEvent(this, this.arena), this);
+        Bukkit.getPluginManager().registerEvents(new CMTInventoryClickEvent(this, this.arena), this);
+        Bukkit.getPluginManager().registerEvents(new CMTInventoryOpenEvent(this, this.arena), this);
+        Bukkit.getPluginManager().registerEvents(new CMTPlayerDropItemEvent(this, this.arena), this);
     }
 
     public void registerEntity(String name, int id, Class<? extends EntityInsentient> nmsClass, Class<? extends EntityInsentient> customClass)
