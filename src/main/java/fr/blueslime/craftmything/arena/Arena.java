@@ -15,6 +15,7 @@ import net.samagames.tools.scoreboards.ObjectiveSign;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
@@ -338,12 +339,15 @@ public class Arena extends Game<ArenaPlayer>
 
         Bukkit.getScheduler().runTaskLaterAsynchronously(CraftMyThing.getInstance(), () ->
         {
-            if (this.godOfMeow == null) {
+            if (this.godOfMeow == null)
+            {
                 this.world.createExplosion(at.getX(), at.getY(), at.getZ(), 10.0F, false, false);
                 this.world.playSound(at, Sound.WITHER_DEATH, 1.0F, 12.0F);
 
                 this.godOfMeow = new GodOfMeow(((CraftWorld) this.world).getHandle(), at);
                 ((Ocelot) this.godOfMeow.getBukkitEntity()).setCatType(Ocelot.Type.SIAMESE_CAT);
+
+                ((CraftWorld) this.world).addEntity(this.godOfMeow, CreatureSpawnEvent.SpawnReason.CUSTOM);
 
                 return;
             }

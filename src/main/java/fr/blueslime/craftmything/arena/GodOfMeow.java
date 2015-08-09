@@ -11,17 +11,14 @@ import org.bukkit.util.Vector;
 
 public class GodOfMeow extends EntityOcelot
 {
-    private final Location location;
     private final CubeEffect cubeEffect;
 
     public GodOfMeow(World world, Location location)
     {
         super(world);
 
-        this.location = location;
-
         this.cubeEffect = new CubeEffect(CraftMyThing.getInstance().getEffectManager());
-        this.cubeEffect.setLocation(this.location.clone().subtract(0.0D, 5.0D, 0.0D));
+        this.cubeEffect.setLocation(location.clone().subtract(0.0D, 5.0D, 0.0D));
         this.cubeEffect.particle = ParticleEffect.FIREWORKS_SPARK;
         this.cubeEffect.infinite();
         this.cubeEffect.start();

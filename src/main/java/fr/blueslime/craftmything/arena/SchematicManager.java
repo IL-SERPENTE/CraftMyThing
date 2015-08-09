@@ -4,12 +4,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import fr.blueslime.craftmything.CraftMyThing;
 import fr.blueslime.craftmything.crafts.EnumZone;
-import fr.blueslime.craftmything.utils.JsonConfiguration;
-import net.samagames.api.SamaGamesAPI;
 import net.samagames.api.schematics.ISchematic;
 import net.samagames.api.schematics.Schematics;
-import net.samagames.api.schematics.internal.SchematicImpl;
-import org.bukkit.Bukkit;
+import net.samagames.tools.JsonConfiguration;
 import org.bukkit.Material;
 
 import java.io.File;
