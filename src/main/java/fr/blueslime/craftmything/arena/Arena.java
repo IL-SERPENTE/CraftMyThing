@@ -76,20 +76,17 @@ public class Arena extends Game<ArenaPlayer>
         Bukkit.broadcastMessage(Messages.disclaimer.toString());
         this.nextWave();
 
-        Bukkit.getScheduler().runTaskTimerAsynchronously(CraftMyThing.getInstance(), new Runnable()
-        {
+        Bukkit.getScheduler().runTaskTimerAsynchronously(CraftMyThing.getInstance(), new Runnable() {
             private int time = 0;
 
             @Override
-            public void run()
-            {
+            public void run() {
                 this.time++;
                 objective.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "CraftMyThing" + ChatColor.WHITE + " | " + ChatColor.AQUA + this.formatTime(this.time));
                 updateScoreboard();
             }
 
-            public String formatTime(int time)
-            {
+            public String formatTime(int time) {
                 int mins = time / 60;
                 int remainder = time - mins * 60;
                 int secs = remainder;
@@ -149,12 +146,20 @@ public class Arena extends Game<ArenaPlayer>
         PlayerLeaderboardWinTemplate template = SamaGamesAPI.get().getGameManager().getCoherenceMachine().getTemplateManager().getPlayerLeaderboardWinTemplate();
         template.execute(player.getPlayerIfOnline(), this.second, this.third);
 
+        this.addCoins(player.getPlayerIfOnline(), 50, "Premier");
+        this.addCoins(this.second, 25, "Second");
+        this.addCoins(this.third, 10, "Troisième");
+
+        this.addStars(player.getPlayerIfOnline(), 2, "Victoire");
+        this.increaseStat(player.getUUID(), "wins", 1);
+
         Bukkit.getScheduler().scheduleSyncRepeatingTask(CraftMyThing.getInstance(), new Runnable()
         {
             int number = (int) (10 * 1.5);
             int count = 0;
 
-            public void run() {
+            public void run()
+            {
                 if (this.count >= this.number || player.getPlayerIfOnline() == null)
                     return;
 
@@ -239,7 +244,7 @@ public class Arena extends Game<ArenaPlayer>
 
             this.setSpectator(last);
 
-            if(this.wave == 11)
+            if(this.wave == 7)
                 this.win(this.getPlayer(this.lastCrafter.getUniqueId()));
             else
                 this.nextWave();

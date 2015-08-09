@@ -6,10 +6,7 @@ import fr.blueslime.craftmything.arena.Arena;
 import fr.blueslime.craftmything.arena.ArenaManager;
 import fr.blueslime.craftmything.arena.GodOfMeow;
 import fr.blueslime.craftmything.events.*;
-import net.minecraft.server.v1_8_R3.BiomeBase;
-import net.minecraft.server.v1_8_R3.EntityEnderDragon;
-import net.minecraft.server.v1_8_R3.EntityInsentient;
-import net.minecraft.server.v1_8_R3.EntityTypes;
+import net.minecraft.server.v1_8_R3.*;
 import net.samagames.api.SamaGamesAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -32,7 +29,7 @@ public class CraftMyThing extends JavaPlugin
 
         this.effectManager = new EffectManager(this.getEffectLib());
 
-        this.registerEntity("GodOfMeow", 98, EntityEnderDragon.class, GodOfMeow.class);
+        this.registerEntity("GodOfMeow", 98, EntityOcelot.class, GodOfMeow.class);
         this.arena = new ArenaManager().loadArena();
         this.registerEvents();
 
