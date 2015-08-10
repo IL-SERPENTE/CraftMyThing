@@ -7,7 +7,6 @@ import net.minecraft.server.v1_8_R3.EntityOcelot;
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import net.minecraft.server.v1_8_R3.World;
 import org.bukkit.Location;
-import org.bukkit.util.Vector;
 
 public class GodOfMeow extends EntityOcelot
 {

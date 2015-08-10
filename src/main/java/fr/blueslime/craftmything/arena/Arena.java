@@ -138,8 +138,11 @@ public class Arena extends Game<ArenaPlayer>
     {
         super.handleLogout(player);
 
-        this.setSpectator(player);
-        this.checkEnd(player);
+        if(!this.isSpectator(player))
+        {
+            this.setSpectator(player);
+            this.checkEnd(player);
+        }
     }
 
     public void win(ArenaPlayer player)
