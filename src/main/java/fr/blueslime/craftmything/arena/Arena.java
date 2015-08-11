@@ -77,17 +77,20 @@ public class Arena extends Game<ArenaPlayer>
         Bukkit.broadcastMessage(Messages.disclaimer.toString());
         this.nextWave();
 
-        Bukkit.getScheduler().runTaskTimerAsynchronously(CraftMyThing.getInstance(), new Runnable() {
+        Bukkit.getScheduler().runTaskTimerAsynchronously(CraftMyThing.getInstance(), new Runnable()
+        {
             private int time = 0;
 
             @Override
-            public void run() {
+            public void run()
+            {
                 this.time++;
                 objective.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "CraftMyThing" + ChatColor.WHITE + " | " + ChatColor.AQUA + this.formatTime(this.time));
                 updateScoreboard();
             }
 
-            public String formatTime(int time) {
+            public String formatTime(int time)
+            {
                 int mins = time / 60;
                 int remainder = time - mins * 60;
                 int secs = remainder;
