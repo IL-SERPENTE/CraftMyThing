@@ -13,7 +13,7 @@ public class ArenaManager
 {
     public Arena loadArena()
     {
-        JsonObject jsonArena = SamaGamesAPI.get().getGameManager().getGameProperties().getMapProperties();
+        JsonObject jsonArena = SamaGamesAPI.get().getGameManager().getGameProperties().getConfigs();
 
         JsonArray jsonSpawns = jsonArena.get("spawns").getAsJsonArray();
         ArrayList<Location> spawns = new ArrayList<>();
